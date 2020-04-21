@@ -1,0 +1,20 @@
+
+
+spring:
+  datasource:
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/weeklyreport?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+  thymeleaf:
+    cache: false
+    suffix: .html
+    prefix: classpath:/public/
+
+server:
+  port: 8081
+
+mybatis:
+#  type-aliases-package: com.test.springboot01.pojo
+#  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml

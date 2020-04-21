@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.weekly_report.dao.StudentDao">
+
+    <resultMap id="BaseResultMap" type="com.test.weekly_report.entity.Student">
+        <!--@Table student-->
+        <result property="studentUid" column="student_uid" jdbcType="INTEGER"/>
+        <result property="studentId" column="student_id" jdbcType="VARCHAR"/>
+        <result property="studentPassword" column="student_password" jdbcType="VARCHAR"/>
+        <result property="studentName" column="student_name" jdbcType="VARCHAR"/>
+        <result property="studentTutorid" column="student_tutorid" jdbcType="VARCHAR"/>
+        <result property="studentEmail" column="student_email" jdbcType="VARCHAR"/>
+        <result property="studentPhone" column="student_phone" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="BaseResultMap">
+        select
+          student_uid, student_id, student_password, student_name, student_tutorid, student_email, student_phone
+        from weeklyreport.student
+        where student_uid = #{studentUid}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="BaseResultMap">
+        select
+          student_uid, student_id, student_password, student_name, student_tutorid, student_email, student_phone
+        from weeklyreport.student
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAllByItem" resultMap="BaseResultMap">
+        select
+          student_uid, student_id, student_password, student_name, student_tutorid, student_email, student_phone
+        from weeklyreport.student
+        <where>
+            <if test="studentUid != null">
+                and student_uid = #{studentUid}
+            </if>
+            <if test="studentId != null and studentId != ''">
+                and student_id = #{studentId}
+            </if>
+            <if test="studentPassword != null and studentPassword != ''">
+                and student_password = #{studentPassword}
+            </if>
+            <if test="studentName != null and studentName != ''">
+                and student_name = #{studentName}
+            </if>
+            <if test="studentTutorid != null and studentTutorid != ''">
+                and student_tutorid = #{studentTutorid}
+            </if>
+            <if test="studentEmail != null and studentEmail != ''">
+                and student_email = #{studentEmail}
+            </if>
+            <if test="studentPhone != null and studentPhone != ''">
+                and student_phone = #{studentPhone}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="studentUid" useGeneratedKeys="true">
+        insert into weeklyreport.student(student_id, student_password, student_name, student_tutorid, student_email, student_phone)
+        values (#{studentId}, #{studentPassword}, #{studentName}, #{studentTutorid}, #{studentEmail}, #{studentPhone})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update weeklyreport.student
+        <set>
+            <if test="studentId != null and studentId != ''">
+                student_id = #{studentId},
+            </if>
+            <if test="studentPassword != null and studentPassword != ''">
+                student_password = #{studentPassword},
+            </if>
+            <if test="studentName != null and studentName != ''">
+                student_name = #{studentName},
+            </if>
+            <if test="studentTutorid != null and studentTutorid != ''">
+                student_tutorid = #{studentTutorid},
+            </if>
+            <if test="studentEmail != null and studentEmail != ''">
+                student_email = #{studentEmail},
+            </if>
+            <if test="studentPhone != null and studentPhone != ''">
+                student_phone = #{studentPhone},
+            </if>
+        </set>
+        where student_uid = #{studentUid}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from weeklyreport.student where student_uid = #{studentUid}
+    </delete>
+     <!--查询所有student-->
+    <select id="queryAll" resultMap="BaseResultMap">
+        select
+        student_uid, student_id, student_password, student_name, student_tutorid, student_email, student_phone        from student
+    </select>
+</mapper>

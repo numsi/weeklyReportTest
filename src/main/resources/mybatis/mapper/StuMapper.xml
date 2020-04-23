@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.weekly_report.dao.StuDao">
+	<!-- 查找所有学生信息 -->
+	<select id="selectStu" resultType="com.test.weekly_report.entity.Stu">
+    SELECT * FROM student  
+ 	</select>
+ 	<!-- 根据学号查找学生信息 -->
+ 	<select id="selectStuByid" resultType="com.test.weekly_report.entity.Stu" parameterType="String">
+    SELECT * FROM student  where student_id=#{_student_id}
+ 	</select>
+ 	<!-- 根据导师号查找信息 -->
+ 	<select id="selectStuByTutorid" resultType="com.test.weekly_report.entity.Stu" parameterType="String">
+    SELECT * FROM student  where student_tutorid=#{_student_tutorid}
+ 	</select>
+ 	<!-- 增加学生 -->
+ 	<insert id="insertStu" parameterType="com.test.weekly_report.entity.Stu">
+    insert into student(student_id,student_name,student_email,student_phone,student_tutorid,student_password)
+    values(#{student_id},#{student_name},#{student_email},#{student_phone},#{student_tutorid},#{student_password})
+    </insert>
+    <!-- 修改学生信息 仅可修改密码 邮箱 手机号 导师-->
+    <update id="updateStu" parameterType="com.test.weekly_report.entity.Stu">
+    update student set student_password=#{student_password},student_email=#{student_email},student_phone=#{student_phone},student_tutorid=#{student_tutorid} where student_id=#{student_id}
+  	</update>
+  	<!-- 删除学生信息 -->
+  	<delete id="deleteStu" parameterType="String">
+ 	 delete from student where student_id=#{_student_id}
+  	</delete>
+</mapper>

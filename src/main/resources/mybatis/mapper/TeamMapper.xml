@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.weekly_report.dao.TeamDao">
+
+	<!-- 查找所有研究团队 -->
+	<select id="selectTeam" resultType="com.test.weekly_report.entity.Team">
+    SELECT * FROM team  
+ 	</select>
+ 	<!-- 根据id查找团队 -->
+ 	<select id="selectTeamByid" resultType="com.test.weekly_report.entity.Team" parameterType="String">
+    SELECT * FROM team  where team_id=#{_team_id}
+ 	</select>
+	<!-- 修改研究团队信息 可修改团队名 管理密码 -->
+	<update id="updateTeam" parameterType="com.test.weekly_report.entity.Team">
+    update team set team_id=#{team_id},team_password=#{team_password},team_name=#{team_name} where team_id=#{team_id}
+  	</update>
+	<!-- 增加研究团队 -->
+	<insert id="insertTeam" parameterType="com.test.weekly_report.entity.Team">
+    insert into team(team_id,team_name,team_password)
+    values(#{team_id},#{team_name},#{team_password})
+    </insert>
+	<!-- 删除研究团队 -->
+	<delete id="deleteTeam" parameterType="String">
+ 	 delete from team where team_id=#{_team_id}
+  	</delete>
+</mapper>

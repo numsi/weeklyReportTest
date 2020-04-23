@@ -1,158 +1,132 @@
 package com.test.weekly_report.entity;
 
-import java.util.Date;
-import java.io.Serializable;
+public class Report {
+	int report_id;//报告ID
+	String report_name;//报告标题
+	String report_planDone;//完成的计划
+	String report_authorid;//作者ID
+	String report_tutorid;//导师ID
+	String report_content;//报告内容
+	String report_difficult;//遇到的困难
+	String report_nextplan;//下周计划
+	String report_comment;//评论
+	String report_creattime;//时间
+	String report_file;//附件名
+	String report_status;//报告状态
 
-/**
- * 每周报告（整体，包括工作总结、遇到的困难、下周计划）(Report)实体类
- *
- * @author numsi
- * @since 2020-04-21 19:50:37
- */
-public class Report implements Serializable {
-    private static final long serialVersionUID = -69154524550041770L;
-    /**
-    * 每周报告编号
-    */
-    private Integer reportId;
-    /**
-    * 每周报告标题
-    */
-    private String reportName;
-    /**
-    * 每周报告作者
-    */
-    private String reportAuthorid;
-    /**
-    * 每周报告作者的导师
-    */
-    private String reportTutorid;
-    /**
-    * 每周报告-完成的计划
-    */
-    private String reportPlandone;
-    /**
-    * 每周报告-报告的详细内容
-    */
-    private String reportContent;
-    /**
-    * 本周工作中遇到的困难
-    */
-    private String reportDifficult;
-    /**
-    * 下周计划
-    */
-    private String reportNextplan;
-    /**
-    * 导师评论
-    */
-    private String reportComment;
-    /**
-    * 每周报告附件
-    */
-    private String reportFile;
-    /**
-    * 每周报告创建时间
-    */
-    private Date reportCreattime;
-    
-    private String reportStatus;
+	String split="AQaq&456";
+	public String getReport_name() {
+		return report_name;
+	}
+	public void setReport_name(String report_name) {
+		this.report_name = report_name;
+	}
 
 
-    public Integer getReportId() {
-        return reportId;
-    }
+	
+	public int getReport_id() {
+		return report_id;
+	}
+	public void setReport_id(int report_id) {
+		this.report_id = report_id;
+	}
+	public String getReport_authorid() {
+		return report_authorid;
+	}
+	public void setReport_authorid(String report_authorid) {
+		this.report_authorid = report_authorid;
+	}
+	public String getReport_tutorid() {
+		return report_tutorid;
+	}
+	public void setReport_tutorid(String report_tutorid) {
+		this.report_tutorid = report_tutorid;
+	}
 
-    public void setReportId(Integer reportId) {
-        this.reportId = reportId;
-    }
+	public String getReport_planDone() {
+		return report_planDone;
+	}
 
-    public String getReportName() {
-        return reportName;
-    }
+	public void setReport_planDone(String report_planDone) {
+		this.report_planDone = report_planDone;
+	}
 
-    public void setReportName(String reportName) {
-        this.reportName = reportName;
-    }
+	public String getReport_content() {
+		return report_content;
+	}
 
-    public String getReportAuthorid() {
-        return reportAuthorid;
-    }
+	public void setReport_content(String report_content) {
+		this.report_content = report_content;
+	}
 
-    public void setReportAuthorid(String reportAuthorid) {
-        this.reportAuthorid = reportAuthorid;
-    }
+	public String getReport_difficult() {
+		return report_difficult;
+	}
 
-    public String getReportTutorid() {
-        return reportTutorid;
-    }
+	public void setReport_difficult(String report_difficult) {
+		this.report_difficult = report_difficult;
+	}
 
-    public void setReportTutorid(String reportTutorid) {
-        this.reportTutorid = reportTutorid;
-    }
+	public String getReport_nextplan() {
+		return report_nextplan;
+	}
 
-    public String getReportPlandone() {
-        return reportPlandone;
-    }
+	public void setReport_nextplan(String report_nextplan) {
+		this.report_nextplan = report_nextplan;
+	}
 
-    public void setReportPlandone(String reportPlandone) {
-        this.reportPlandone = reportPlandone;
-    }
+	public String getReport_comment() {
+		return report_comment;
+	}
+	public void setReport_comment(String report_comment) {
+		this.report_comment = report_comment;
+	}
 
-    public String getReportContent() {
-        return reportContent;
-    }
+	public String getReport_creattime() {
+		return report_creattime;
+	}
 
-    public void setReportContent(String reportContent) {
-        this.reportContent = reportContent;
-    }
+	public void setReport_creattime(String report_creattime) {
+		this.report_creattime = report_creattime;
+	}
 
-    public String getReportDifficult() {
-        return reportDifficult;
-    }
+	public String getReport_file() {
+		return report_file;
+	}
+	public void setReport_file(String report_file) {
+		this.report_file = report_file;
+	}
+	public String getReport_status() {
+		return report_status;
+	}
+	public void setReport_status(String report_status) {
+		this.report_status = report_status;
+	}
 
-    public void setReportDifficult(String reportDifficult) {
-        this.reportDifficult = reportDifficult;
-    }
+	public String getSplit() {
+		return split;
+	}
 
-    public String getReportNextplan() {
-        return reportNextplan;
-    }
+	public void setSplit(String split) {
+		this.split = split;
+	}
 
-    public void setReportNextplan(String reportNextplan) {
-        this.reportNextplan = reportNextplan;
-    }
-
-    public String getReportComment() {
-        return reportComment;
-    }
-
-    public void setReportComment(String reportComment) {
-        this.reportComment = reportComment;
-    }
-
-    public String getReportFile() {
-        return reportFile;
-    }
-
-    public void setReportFile(String reportFile) {
-        this.reportFile = reportFile;
-    }
-
-    public Date getReportCreattime() {
-        return reportCreattime;
-    }
-
-    public void setReportCreattime(Date reportCreattime) {
-        this.reportCreattime = reportCreattime;
-    }
-
-    public String getReportStatus() {
-        return reportStatus;
-    }
-
-    public void setReportStatus(String reportStatus) {
-        this.reportStatus = reportStatus;
-    }
-
+	@Override
+	public String toString() {
+		return "Report{" +
+				"report_id=" + report_id +
+				", report_name='" + report_name + '\'' +
+				", report_planDone='" + report_planDone + '\'' +
+				", report_authorid='" + report_authorid + '\'' +
+				", report_tutorid='" + report_tutorid + '\'' +
+				", report_content='" + report_content + '\'' +
+				", report_difficult='" + report_difficult + '\'' +
+				", report_nextplan='" + report_nextplan + '\'' +
+				", report_comment='" + report_comment + '\'' +
+				", report_creattime='" + report_creattime + '\'' +
+				", report_file='" + report_file + '\'' +
+				", report_status='" + report_status + '\'' +
+				", split='" + split + '\'' +
+				'}';
+	}
 }

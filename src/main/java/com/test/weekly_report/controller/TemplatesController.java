@@ -13,7 +13,7 @@ public class TemplatesController {
     public String greeting(@RequestParam(name = "name", required = false, defaultValue = "world") String name,
                            Model model) {
         model.addAttribute("xname", name);
-        return "index";
+        return "test";
     }
 
 

@@ -1,61 +1,40 @@
 package com.test.weekly_report.entity;
 
-import java.io.Serializable;
-
-/**
- * 科研团队信息(Team)实体类
- *
- * @author numsi
- * @since 2020-04-21 19:50:51
- */
-public class Team implements Serializable {
-    private static final long serialVersionUID = 580042672251953109L;
-    
-    private Integer teamUid;
-    /**
-    * 科研团队账号
-    */
-    private String teamId;
-    /**
-    * 科研团队密码
-    */
-    private String teamPassword;
-    /**
-    * 科研团队名称
-    */
-    private String teamName;
-
-
-    public Integer getTeamUid() {
-        return teamUid;
-    }
-
-    public void setTeamUid(Integer teamUid) {
-        this.teamUid = teamUid;
-    }
-
-    public String getTeamId() {
-        return teamId;
-    }
-
-    public void setTeamId(String teamId) {
-        this.teamId = teamId;
-    }
-
-    public String getTeamPassword() {
-        return teamPassword;
-    }
-
-    public void setTeamPassword(String teamPassword) {
-        this.teamPassword = teamPassword;
-    }
-
-    public String getTeamName() {
-        return teamName;
-    }
-
-    public void setTeamName(String teamName) {
-        this.teamName = teamName;
-    }
+public class Team {
+	int team_uid;//团队uid
+	String team_id;//团队账号
+	String team_password;//团队密码
+	String team_name;//团队名
+	public int getTeam_uid() {
+		return team_uid;
+	}
+	public void setTeam_uid(int team_uid) {
+		this.team_uid = team_uid;
+	}
+	public String getTeam_password() {
+		return team_password;
+	}
+	public void setTeam_password(String team_password) {
+		this.team_password = team_password;
+	}
+	public String getTeam_name() {
+		return team_name;
+	}
+	public void setTeam_name(String team_name) {
+		this.team_name = team_name;
+	}
+	public String getTeam_id() {
+		return team_id;
+	}
+	public void setTeam_id(String team_id) {
+		this.team_id = team_id;
+	}
+	@Override
+	public String toString() {
+		return "Team [team_uid=" + team_uid + ", team_id=" + team_id + ", team_password=" + team_password
+				+ ", team_name=" + team_name + "]";
+	}
+	
+	
 
 }

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.weekly_report.dao.TutorDao">
+ 	<!-- 增加导师 -->
+ 	<insert id="insertTutor" parameterType="com.test.weekly_report.entity.Tutor">
+    insert into tutor(tutor_id,tutor_name,tutor_teamname,tutor_rank,tutor_phone,tutor_password)
+    values(#{tutor_id},#{tutor_name},#{tutor_teamname},#{tutor_rank},#{tutor_phone},#{tutor_password})
+    </insert>
+ 	<!-- 查找所有导师 -->
+ 	<select id="selectTutor" resultType="com.test.weekly_report.entity.Tutor">
+    SELECT * FROM tutor
+    </select>
+    <!-- 根据ID查找导师 -->
+    <select id="selectTutorByid" resultType="com.test.weekly_report.entity.Tutor" parameterType="String">
+    SELECT * FROM tutor  where tutor_id=#{_tutor_id}
+ 	</select>
+    <!-- 根据团队查找导师 -->
+    <select id="selectTutorByTeam" resultType="com.test.weekly_report.entity.Tutor">
+    SELECT * FROM tutor where tutor_teamname=#{_tutor_teamname}
+    </select>
+    <!-- 删除导师 -->
+  	<delete id="deleteTutor" parameterType="String">
+ 	 delete from tutor where tutor_id=#{_tutor_id}
+  	</delete>
+  	<!-- 修改导师信息  可修改密码 手机号 职称 所属团队-->
+  	<update id="updateTutor" parameterType="com.test.weekly_report.entity.Tutor">
+    update tutor set tutor_password=#{tutor_password},tutor_rank=#{tutor_rank},tutor_phone=#{tutor_phone},tutor_teamname=#{tutor_teamname} where tutor_id=#{tutor_id}
+  	</update>
+</mapper>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.weekly_report.dao.ReportDao">
+ 	<!-- 增加报告 -->
+ 	<insert id="insertReport" parameterType="com.test.weekly_report.entity.Report">
+    insert into report(report_name,report_planDone,report_authorid,report_tutorid,report_content,report_difficult,report_nextplan,report_file)
+    values(#{report_name},#{report_planDone},#{report_authorid},#{report_tutorid},#{report_content},#{report_difficult},#{report_nextplan},#{report_file})
+    </insert>
+    <!-- 根据reportID查找报告 -->
+    <select id="selectReportByID" resultType="com.test.weekly_report.entity.Report" parameterType="Int">
+    SELECT * FROM report  where report_id=#{_report_id}
+ 	</select>
+ 	<!-- 查找所有报告 -->
+    <select id="selectReport" resultType="com.test.weekly_report.entity.Report">
+    SELECT * FROM report ORDER BY report_id desc
+ 	</select>
+    <!-- 根据作者ID查找报告 -->
+    <select id="selectReportByAuthorID" resultType="com.test.weekly_report.entity.Report" parameterType="String">
+    SELECT * FROM report  where report_authorid=#{_report_authorid} ORDER BY report_id desc
+ 	</select>
+ 	<!-- 根据导师ID查找报告 -->
+ 	<select id="selectReportByTutorID" resultType="com.test.weekly_report.entity.Report" parameterType="String">
+    SELECT * FROM report  where report_tutorid=#{_report_tutorid} ORDER BY report_id desc
+ 	</select>
+ 	<!-- 根据报告ID删除报告 -->
+ 	<delete id="deleteReport" parameterType="Int">
+ 	 delete from report where report_id=#{_report_id}
+  	</delete>
+  	<!-- 修改报告，可改内容 评论 完成计划 遇到困难 下周计划 附件-->
+  	<update id="updateReport" parameterType="com.test.weekly_report.entity.Report">
+    update report set report_content=#{report_content},report_comment=#{report_comment},report_planDone=#{report_planDone},report_difficult=#{report_difficult},report_nextplan=#{report_nextplan},report_file=#{report_file} where report_id=#{report_id}
+  	</update>
+</mapper>
